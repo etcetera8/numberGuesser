@@ -5,6 +5,7 @@ var max = 100;
 var guessArray = [];
 const display = document.getElementById("guessDisplay");
 var feedback = document.getElementById("tooLow");
+var resetButton = document.getElementById("reset");
 
 function setNum() {
   num = Math.ceil((Math.random() * 100));
@@ -38,26 +39,19 @@ function hiLow () {
 function guessSave() {
     guess = parseInt(document.getElementById("guessInput").value);
     guessArray.push(guess);
+    resetButton.disabled = false;
     console.log(guessArray);
     display.innerHTML = guess;
     hiLow();
     document.getElementById("guessInput").value = '';
 };
 
-function setReset() {
-    if (guessArray.length > 0) {
-    document.getElementById("reset").disabled = false;
-  } else if (guessArray.length === 0) {
-    document.getElementById("reset").disabled = true;
-  }
-}
-
 function resetGame() {
   setNum();
   display.innerHTML = ' ';
   feedback.innerHTML = ' ';
   guessArray.length = 0;
-  document.getElementById("reset").disabled = true;  
+  resetButton.disabled = true;  
 }
 
 function numOnly() {
