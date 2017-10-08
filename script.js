@@ -1,5 +1,10 @@
 var num = 0;
 var guess = 0;
+var min = 1;
+var max = 100;
+var guessArray = [];
+const display = document.getElementById("guessDisplay");
+var feedback = document.getElementById("tooLow");
 
 function setNum() {
   num = Math.ceil((Math.random() * 100));
@@ -7,32 +12,52 @@ function setNum() {
 }
 
 function hiLow () {
-
-  if (guess > num) {
-    document.getElementById("tooLow").innerHTML ="your guess was too high";
+  if (guess > max) {
+    feedback.innerHTML = "Your guess is above the range"
+    display.innerHTML = " ";
+  }
+  else if (guess < min) {
+    feedback.innerHTML = "Your guess is below the range"
+    display.innerHTML = " ";
+  }
+  else if (guess > num) {
+    feedback.innerHTML ="your guess was too high";
   } 
   else if (guess < num) {
-    document.getElementById("tooLow").innerHTML = "your guess was too low";
+    feedback.innerHTML = "your guess was too low";
+  }
+  else if (guess == num){
+    feedback.innerHTML = "BOOM!";
   }
   else {
-    document.getElementById("tooLow").innerHTML = "BOOM!";
+    feedback.innerHTML = "You need to make a guess if you want to play"
+    display.innerHTML = " ";
   }
 }
 
 function guessSave() {
-    var display = document.getElementById("guessDisplay");
-    guess = document.getElementById("guessInput").value;
-    hiLow();
+    guess = parseInt(document.getElementById("guessInput").value);
+    guessArray.push(guess);
+    console.log(guessArray);
     display.innerHTML = guess;
+    hiLow();
     document.getElementById("guessInput").value = '';
 };
 
-function reset() {
-  var feedback = document.getElementById("tooLow");
-  var display = document.getElementById("guessDisplay");
+function setReset() {
+    if (guessArray.length > 0) {
+    document.getElementById("reset").disabled = false;
+  } else if (guessArray.length === 0) {
+    document.getElementById("reset").disabled = true;
+  }
+}
+
+function resetGame() {
   setNum();
   display.innerHTML = ' ';
   feedback.innerHTML = ' ';
+  guessArray.length = 0;
+  document.getElementById("reset").disabled = true;  
 }
 
 function numOnly() {
@@ -41,7 +66,8 @@ function numOnly() {
 }
 
 function disable() {
-  if (this.value == ' ') {
+  var guessInput = document.getElementById("guessInput");
+  if (guessInput.value.length == 0) {
     document.getElementById("clear").disabled = true;
   } else {
     document.getElementById("clear").disabled = false;
