@@ -42,14 +42,32 @@ input {
 }
 
 button {
-  margin:3% 4% 0% 4%;
+  /*margin:3% 4% 0% 4%;*/
   width: 100px;
+  height: 25px;
   -webkit-border-radius: 16px;
   -moz-border-radius: 16px;
   border-radius: 16px;
   border: none;
   color: #FFFFFF;
   background-color: #929497;
+}
+
+.top-wrapper {
+  width: 100%;
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+#guessButton {
+float: left;
+}
+
+#clear {
+float: right;
 }
 
 #guessDisplay {
