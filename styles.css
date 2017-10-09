@@ -18,9 +18,14 @@ h1 {
   color: #e6e7e8;
   margin: 0 auto;
 }
-span {
+.number {
   font-weight: 900;
   color: #ED458B;
+}
+
+.guesser {
+  font-weight: lighter;
+  -webkit-font-smoothing: antialiased;
 }
 
 .main {
