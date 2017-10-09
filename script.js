@@ -9,9 +9,15 @@ var resetButton = document.getElementById("reset");
 var clearButton = document.getElementById("clear");
 var guessInput = document.getElementById("guessInput");
 
+
 function setNum() {
   num = Math.ceil((Math.random() * 100));
   console.log(num);
+}
+
+function setRange() {
+  min = document.getElementById("setMin");
+  max = document.getElementById("setMax");
 }
 
 function hiLow () {
@@ -42,8 +48,8 @@ function guessSave() {
     guess = parseInt(document.getElementById("guessInput").value);
     guessArray.push(guess);
     resetButton.disabled = false;
-    console.log(guessArray);
     display.innerHTML = guess;
+    setRange();
     hiLow();
     document.getElementById("guessInput").value = '';
     disableClear();
@@ -76,5 +82,15 @@ function disable() {
     document.getElementById("clear").disabled = true;
   } else {
     document.getElementById("clear").disabled = false;
+  }
+}
+
+function showMod() {
+  var modWindow = document.getElementById("modifier");
+  if (modWindow.style.display !== 'none') {
+    modWindow.style.display = 'none';
+  }
+  else {
+    modWindow.style.display = 'block';
   }
 }
