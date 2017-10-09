@@ -16,32 +16,24 @@
   </header>
 
   <section class = "main">
-
     <form>
-
-      <label>Guess:  
-
-      <input id = "guessInput" type = "text" placeholder="your number here" min = "1" max ="100" onkeyup = "disable(); numOnly();";></input></label> 
+      <label> 
+        <input id = "guessInput" type = "number" placeholder="Enter your guess here" min = "1" max ="100" onkeyup = "disable()";></input>
+      </label> 
       
       <div class = "top-wrapper">
-      <button id = "guessButton" type = "button" onclick = "guessSave()">Guess</button>
-
-      <button id = "clear" type = "reset" disabled="true">Clear</button>
+        <button id = "guessButton" type = "button" onclick = "guessSave()">Guess</button>
+        <button id = "clear" type = "reset" disabled="true" onclick="disableClear()">Clear</button>
       </div>
-
-      </form>
+    </form>
 
       <p>Your last guess was</p>
-
       <p id = "guessDisplay"></p>
       <p id = "tooLow"></p>
 
     <div class = "wrapper">
       <button id = "reset" type = "submit" onclick = "resetGame()" disabled="true">Reset</button>
     </div>
-
-
-      
   </section>
 
 </body>
