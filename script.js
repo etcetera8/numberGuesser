@@ -6,6 +6,8 @@ var guessArray = [];
 const display = document.getElementById("guessDisplay");
 var feedback = document.getElementById("tooLow");
 var resetButton = document.getElementById("reset");
+var clearButton = document.getElementById("clear");
+var guessInput = document.getElementById("guessInput");
 
 function setNum() {
   num = Math.ceil((Math.random() * 100));
@@ -15,24 +17,24 @@ function setNum() {
 function hiLow () {
   if (guess > max) {
     feedback.innerHTML = "Your guess is above the range"
-    display.innerHTML = " ";
+    display.innerHTML = "!";
   }
   else if (guess < min) {
     feedback.innerHTML = "Your guess is below the range"
-    display.innerHTML = " ";
+    display.innerHTML = "!";
   }
   else if (guess > num) {
-    feedback.innerHTML ="your guess was too high";
+    feedback.innerHTML ="That is too high";
   } 
   else if (guess < num) {
-    feedback.innerHTML = "your guess was too low";
+    feedback.innerHTML = "That is too low";
   }
   else if (guess == num){
     feedback.innerHTML = "BOOM!";
   }
   else {
     feedback.innerHTML = "You need to make a guess if you want to play"
-    display.innerHTML = " ";
+    display.innerHTML = "!";
   }
 }
 
@@ -44,6 +46,7 @@ function guessSave() {
     display.innerHTML = guess;
     hiLow();
     document.getElementById("guessInput").value = '';
+    disableClear();
 };
 
 function resetGame() {
@@ -54,13 +57,21 @@ function resetGame() {
   resetButton.disabled = true;  
 }
 
-function numOnly() {
-  var guessInput = document.getElementById("guessInput");
-  guessInput.value=guessInput.value.replace(/[^\d]/,'');
+function disableClear() {
+  clear.disabled = true;
+  document.getElementById("guessInput").value = '';
 }
+ 
+ 
+ guessInput.addEventListener("keydown", function(e) {
+  if ([69, 187].includes(e.keyCode)) {
+    e.preventDefault();
+  }
+ });
 
 function disable() {
-  var guessInput = document.getElementById("guessInput");
+  //var guessInput = document.getElementById("guessInput");
+
   if (guessInput.value.length == 0) {
     document.getElementById("clear").disabled = true;
   } else {
