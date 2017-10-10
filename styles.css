@@ -127,11 +127,17 @@ button:disabled {
   width:25%;
   position: absolute;
   right: 0;
-  padding: 0px 5px 5px 5px;
+  padding: 0px 5px 20px 5px;
 }
 
 #modifier p {
   color: #e6e7e8;
+}
+
+#rangeButton {
+  display: block;
+  margin:0 auto;
+  margin-top: 10px;
 }
 
 .range {
@@ -140,7 +146,13 @@ button:disabled {
 
 .set-range {
   width:30px;
-  margin-bottom: 10px;
+  margin: 7px 7px 7px 10px;
+  display: inline;
+}
+
+label {
+  display: inline;
+  color: #e6e7e8;
 }
 
 @media all and (max-width: 500px) {
@@ -155,5 +167,9 @@ button:disabled {
 
   .main {
     height: 580px;
+  }
+
+  label {
+    color:#404041;
   }
 }
