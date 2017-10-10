@@ -10,11 +10,11 @@
  
 </head>
 
-<body onload = "setNum()">
+<body onload = "setNum(min,max)">
   
   <header>
 
-    <h1><span class = "number">Number</span> <span class = "guesser">Guesser</span></h1>
+    <h1><span class = "pink">Number</span> <span class = "guesser">Guesser</span></h1>
     <i class = "fa fa-bars" aria-hidden="true" onclick="showMod()"></i>
   </header>
 
@@ -46,6 +46,8 @@
       <p id = "tooLow"></p>
 
     <div class = "wrapper">
+      <p>Your guess should be between <span class = "display-min pink">1</span> and <span class = "display-max pink">100</span></p>
+
       <button id = "reset" type = "submit" onclick = "resetGame()" disabled="true">Reset</button>
      
     </div>
