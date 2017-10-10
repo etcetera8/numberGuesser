@@ -16,8 +16,8 @@ function setNum(min, max) {
 }
 
 function setRange () {
-  min = document.getElementById("setMin").value;
-  max = document.getElementById("setMax").value;
+  min = parseInt(document.getElementById("setMin").value);
+  max = parseInt(document.getElementById("setMax").value);
 }
 
 function hiLow () {
