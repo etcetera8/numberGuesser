@@ -8,11 +8,16 @@ var feedback = document.getElementById("tooLow");
 var resetButton = document.getElementById("reset");
 var clearButton = document.getElementById("clear");
 var guessInput = document.getElementById("guessInput");
-//var userSetRangeButton = document.getElementById("rangeButton");
+var userSetRangeButton = document.getElementById("rangeButton");
 
 function setNum() {
   num = Math.ceil((Math.random() * 100));
   console.log(num);
+}
+
+function setRange () {
+  min = document.getElementById("setMin").value;
+  max = document.getElementById("setMax").value;
 }
 
 function hiLow () {
@@ -87,9 +92,9 @@ function showMod() {
   }
 }
 
-// userSetRangeButton.addEventListener('click', function() {
-//   min = document.getElementById("setMin").value;
-//   max = document.getElementById("setMax").value;
-//   console.log(max + min);
-// })
+userSetRangeButton.addEventListener('click', function() {
+  min = document.getElementById("setMin").value;
+  max = document.getElementById("setMax").value;
+  console.log(max + min);
+})
 

@@ -13,11 +13,13 @@
 <body onload = "setNum()">
   
   <header>
-  <i class = "fa fa-bars" aria-hidden = "true" onclick = "showMod()"></i>
+
     <h1><span class = "number">Number</span> <span class = "guesser">Guesser</span></h1>
+    <i class = "fa fa-bars" aria-hidden="true" onclick="showMod()"></i>
   </header>
 
   <section class = "main">
+
     <section id = "modifier">
     
     <p>Set your own range!</p>
@@ -34,7 +36,7 @@
       </label> 
 
       <div class = "top-wrapper">
-        <button id = "guessButton" type = "submit" onclick = "guessSave()">Guess</button>
+        <button id = "guessButton" type = "button" onclick = "guessSave()">Guess</button>
         <button id = "clear" type = "reset" disabled="true" onclick="disableClear()">Clear</button>
       </div>
     </form>
