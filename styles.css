@@ -39,6 +39,7 @@ h1 {
 .guesser {
   font-weight: lighter;
   color: #e6e7e8;
+  -webkit-font-smoothing: antialiased;
 }
 
 .main {
