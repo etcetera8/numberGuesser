@@ -14,7 +14,6 @@
   
   <header>
   <i class = "fa fa-bars" aria-hidden = "true" onclick = "showMod()"></i>
-
     <h1><span class = "number">Number</span> <span class = "guesser">Guesser</span></h1>
   </header>
 
@@ -23,23 +22,19 @@
     
     <p>Set your own range!</p>
       <input class = "set-range" id = "setMin" type = "number" placeholder="Enter beginning of range" value = "1">
-      
       <input class = "set-range" id = "setMax" type = "number" placeholder="Enter ending of range" value = "100">
+      <button id = "rangeButton" type = "button">Set new range</button>
      
-
     </section>
 
 
     <form>
       <label> 
-        <input id = "guessInput" type = "number" placeholder="Enter your guess here" min = "1" max ="100" onkeyup = "disable()";></input>
+        <input id = "guessInput" type = "number" placeholder="Enter your guess here" onkeyup = "disable()";></input>
       </label> 
 
-   
-       
-      
       <div class = "top-wrapper">
-        <button id = "guessButton" type = "button" onclick = "guessSave()">Guess</button>
+        <button id = "guessButton" type = "submit" onclick = "guessSave()">Guess</button>
         <button id = "clear" type = "reset" disabled="true" onclick="disableClear()">Clear</button>
       </div>
     </form>
@@ -51,8 +46,6 @@
     <div class = "wrapper">
       <button id = "reset" type = "submit" onclick = "resetGame()" disabled="true">Reset</button>
      
- 
-
     </div>
 
 
