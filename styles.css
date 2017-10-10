@@ -31,7 +31,7 @@ h1 {
   margin: 0 auto;
 }
 
-.number {
+.pink {
   font-weight: 900;
   color: #ED458B;
 }
@@ -129,6 +129,10 @@ button:disabled {
   position: absolute;
   right: 0;
   padding: 0px 5px 5px 5px;
+}
+
+#modifier p {
+  color: #e6e7e8;
 }
 
 .range {
