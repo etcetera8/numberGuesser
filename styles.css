@@ -53,18 +53,16 @@ form {
   margin: 5%;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+}
+
 input {
   width: 250px;
   display: block;
   margin: 0 auto;
-}
-
-.range {
-  margin: 5px;
-}
-
-.set-range {
-  width:50px;
 }
 
 button {
@@ -124,11 +122,20 @@ button:disabled {
 }
 
 #modifier {
-  transition: background 0.2s ease;
+  transition: height 0.2s ease;
   display: none;
   background-color: #404041;
   width:15%;
   position: absolute;
   right: 0;
   padding: 0px 5px 5px 5px;
+}
+
+.range {
+  margin: 5px;
+}
+
+.set-range {
+  width:30px;
+  margin-bottom: 10px;
 }
