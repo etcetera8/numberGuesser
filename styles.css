@@ -123,9 +123,8 @@ button:disabled {
 
 #modifier {
   transition: height 0.2s ease;
-  display: none;
   background-color: #404041;
-  width:15%;
+  width:25%;
   position: absolute;
   right: 0;
   padding: 0px 5px 5px 5px;
@@ -142,4 +141,19 @@ button:disabled {
 .set-range {
   width:30px;
   margin-bottom: 10px;
+}
+
+@media all and (max-width: 500px) {
+  #modifier {
+    position: relative;
+    background-color: white;
+  }
+
+  #modifier p {
+    color: #404041;
+  }
+
+  .main {
+    height: 580px;
+  }
 }
