@@ -10,8 +10,8 @@ var clearButton = document.getElementById("clear");
 var guessInput = document.getElementById("guessInput");
 var userSetRangeButton = document.getElementById("rangeButton");
 
-function setNum() {
-  num = Math.ceil((Math.random() * 100));
+function setNum(min, max) {
+  num = Math.ceil(Math.random() * (max - min + 1))+min;
   console.log(num);
 }
 
@@ -56,7 +56,7 @@ function guessSave() {
 };
 
 function resetGame() {
-  setNum();
+  setNum(min, max);
   display.innerHTML = ' ';
   feedback.innerHTML = ' ';
   guessArray.length = 0;
@@ -93,8 +93,12 @@ function showMod() {
 }
 
 userSetRangeButton.addEventListener('click', function() {
-  min = document.getElementById("setMin").value;
-  max = document.getElementById("setMax").value;
-  console.log(max + min);
+  min = parseInt(document.getElementById("setMin").value);
+  max = parseInt(document.getElementById("setMax").value);
+  document.querySelector(".display-min").innerText = min;
+  document.querySelector(".display-max").innerText = max;
+  setNum(min,max);
 })
+
+
 
