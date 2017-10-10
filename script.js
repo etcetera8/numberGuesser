@@ -1,6 +1,8 @@
+//GLOBAL VARS
+
 var num = 0;
 var guess = 0;
-var min = 1;
+var min = 0;
 var max = 100;
 var guessArray = [];
 const display = document.getElementById("guessDisplay");
@@ -36,7 +38,7 @@ function hiLow () {
     feedback.innerHTML = "That is too low";
   }
   else if (guess == num){
-    feedback.innerHTML = "BOOM!";
+    feedback.innerHTML = "<p>BOOM!<br > Your range has been adjusted! Click reset to start a new game.</p>";
     winIncrement();
   }
   else {
@@ -103,7 +105,7 @@ userSetRangeButton.addEventListener('click', function() {
   max = parseInt(document.getElementById("setMax").value);
   document.querySelector(".display-min").innerText = min;
   document.querySelector(".display-max").innerText = max;
-  setNum(min,max);
+  resetGame();
 })
 
 
