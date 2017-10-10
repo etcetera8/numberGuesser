@@ -37,12 +37,23 @@ function hiLow () {
   }
   else if (guess == num){
     feedback.innerHTML = "BOOM!";
+    winIncrement();
   }
   else {
     feedback.innerHTML = "You need to make a guess if you want to play"
     display.innerHTML = "!";
   }
 }
+function winIncrement() {
+  min = min - 10;
+  max = max + 10;
+  setNum(min,max);
+  document.getElementById("setMin").value = min;
+  document.getElementById("setMax").value = max;
+  document.querySelector(".display-min").innerText = min;
+  document.querySelector(".display-max").innerText = max;
+}
+
 
 function guessSave() {
     guess = parseInt(document.getElementById("guessInput").value);
