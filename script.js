@@ -84,12 +84,7 @@ function disable() {
 
 function showMod() {
   var modWindow = document.getElementById("modifier");
-  if (modWindow.style.display !== 'none') {
-    modWindow.style.display = 'none';
-  }
-  else {
-    modWindow.style.display = 'block';
-  }
+  modWindow.style.display = modWindow.style.display == "none" ? "inline" : "none";
 }
 
 userSetRangeButton.addEventListener('click', function() {
