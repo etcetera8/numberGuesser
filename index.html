@@ -22,7 +22,7 @@
 
     <section id = "modifier" style="display: none;">
       <p>Set your own range</p>
-      <label>Min: </label><input class = "set-range" id = "setMin" type = "number" value = "1">
+      <label>Min: </label><input class = "set-range" id = "setMin" type = "number" value = "0">
       <label>Max: </label><input class = "set-range" id = "setMax" type = "number" value = "100">
       <button id = "rangeButton" type = "button">Set range</button> 
     </section>
@@ -35,6 +35,7 @@
 
       <div class = "top-wrapper">
         <button id = "guessButton" type = "button" onclick = "guessSave()">Guess</button>
+        
         <button id = "clear" type = "reset" disabled="true" onclick="disableClear()">Clear</button>
       </div>
     </form>
