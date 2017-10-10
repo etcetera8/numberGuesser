@@ -27,7 +27,7 @@
       <button id = "rangeButton" type = "button">Set range</button> 
     </section>
 
-
+    <progress value="0" max="10" id = "timer"></progress>
     <form>
       <label> 
         <input id = "guessInput" type = "number" placeholder="Enter your guess here" onkeyup = "disable()";></input>
@@ -48,7 +48,6 @@
       <p>Your guess should be between <span class = "display-min pink">1</span> and <span class = "display-max pink">100</span></p>
 
       <button id = "reset" type = "submit" onclick = "resetGame()" disabled="true">Reset</button>
-     
     </div>
 
 
