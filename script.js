@@ -8,16 +8,11 @@ var feedback = document.getElementById("tooLow");
 var resetButton = document.getElementById("reset");
 var clearButton = document.getElementById("clear");
 var guessInput = document.getElementById("guessInput");
-
+//var userSetRangeButton = document.getElementById("rangeButton");
 
 function setNum() {
   num = Math.ceil((Math.random() * 100));
   console.log(num);
-}
-
-function setRange() {
-  min = document.getElementById("setMin");
-  max = document.getElementById("setMax");
 }
 
 function hiLow () {
@@ -68,7 +63,6 @@ function disableClear() {
   document.getElementById("guessInput").value = '';
 }
  
- 
  guessInput.addEventListener("keydown", function(e) {
   if ([69, 187].includes(e.keyCode)) {
     e.preventDefault();
@@ -76,8 +70,6 @@ function disableClear() {
  });
 
 function disable() {
-  //var guessInput = document.getElementById("guessInput");
-
   if (guessInput.value.length == 0) {
     document.getElementById("clear").disabled = true;
   } else {
@@ -94,3 +86,10 @@ function showMod() {
     modWindow.style.display = 'block';
   }
 }
+
+// userSetRangeButton.addEventListener('click', function() {
+//   min = document.getElementById("setMin").value;
+//   max = document.getElementById("setMax").value;
+//   console.log(max + min);
+// })
+
