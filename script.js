@@ -68,7 +68,7 @@ function guessSave() {
     display.innerHTML = guess;
     setRange();
     hiLow();
-    setTimer();
+    updateCountDown();
     document.getElementById("guessInput").value = '';
     disableClear();
 };
@@ -120,14 +120,16 @@ userSetRangeButton.addEventListener('click', function() {
 })
 
 //TIMER
-var countDownFrom = 10;
-function setTimer() {
-  var countDownBar = setInterval(function() {
-    document.getElementById("timer").value = 10 - --countDownFrom;
-    if (countDownFrom <=0)
-      clearInterval(countDownBar);
-  }, 1000);
-};
-
-
-
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  var id = setInterval(frame, 100);
+  function frame() {
+    if (width >= 1000) {
+      clearInterval(id);
+     } else {
+      width++;
+      elem.style.width = width + '%';
+     }
+  }
+}
