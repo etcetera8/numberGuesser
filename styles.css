@@ -181,21 +181,29 @@ label {
 }
 
 #myBar {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
   width: 1%;
   height: 30px;
   background-color: #EB008B;
+  transition: width 2s;
 }
 
-/*#timer {
-  background-image:
-     -webkit-linear-gradient(-45deg, 
-                             transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                             rgba(0,0, 0, .1) 66%, transparent 66%),
-     -webkit-linear-gradient(top, 
-                             rgba(255, 255, 255, .25), 
-                             rgba(0, 0, 0, .25)),
-     -webkit-linear-gradient(left, #09c, #f44);
+#game-message {
+  margin-left: 10px;
+  color:white;
+}
 
-    border-radius: 2px; 
-    background-size: 35px 20px, 100% 100%, 100% 100%;
-}*/
+#game-message:hover {
+  
+}
+
+#myBar:hover {
+  width:20%;
+}
+
+#start-game {
+  margin-top:5px;
+}
+
