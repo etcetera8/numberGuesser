@@ -4,7 +4,7 @@
 <html>
 <head>
 
-  <title>Number Guess</title>
+  <title>Number Guesser</title>
   <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
  
@@ -25,15 +25,17 @@
       <label>Min: </label><input class = "set-range" id = "setMin" type = "number" value = "0">
       <label>Max: </label><input class = "set-range" id = "setMax" type = "number" value = "100">
       <button id = "rangeButton" type = "button">Set range</button> 
+
+      <button onclick="move()" id = "start-game" >Start Game</button>
     </section>
 
 
 
     <div id = "myProgress">
-      <div id ="myBar"></div>
-      <button onclick="move()">move bar</button>
+      <div id ="myBar"><p id = "game-message">Play Timed Version</p></div>
+      
     </div>
-    
+
     <form>
       <label> 
         <input id = "guessInput" type = "number" placeholder="Enter your guess here" onkeyup = "disable()";></input>
