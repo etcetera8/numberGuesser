@@ -175,7 +175,18 @@ label {
   }
 }
 
-#timer {
+#count-down-timer {
+  float: left;
+  margin-left: 25px;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #EB008B;
+}
+
+/*#timer {
   background-image:
      -webkit-linear-gradient(-45deg, 
                              transparent 33%, rgba(0, 0, 0, .1) 33%, 
@@ -187,4 +198,4 @@ label {
 
     border-radius: 2px; 
     background-size: 35px 20px, 100% 100%, 100% 100%;
-}
+}*/
