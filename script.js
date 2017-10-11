@@ -11,6 +11,7 @@ var clearButton = document.getElementById("clear");
 var guessInput = document.getElementById("guessInput");
 var userSetRangeButton = document.getElementById("rangeButton");
 
+
 //SET THE RANDOM NUMBER
 function setNum(min, max) {
   num = Math.ceil(Math.random() * (max - min + 1))+min;
@@ -42,6 +43,7 @@ function hiLow () {
   else if (guess == num){
     feedback.innerHTML = "<p>BOOM!<br > Your range has been adjusted! Click reset to start a new game.</p>";
     winIncrement();
+    resetTimer();
   }
   else {
     feedback.innerHTML = "You need to make a guess if you want to play"
@@ -68,7 +70,7 @@ function guessSave() {
     display.innerHTML = guess;
     setRange();
     hiLow();
-    updateCountDown();
+    move();
     document.getElementById("guessInput").value = '';
     disableClear();
 };
@@ -122,10 +124,11 @@ userSetRangeButton.addEventListener('click', function() {
 //TIMER
 function move() {
   var elem = document.getElementById("myBar");
+  elem.style.width = "1%";
   var width = 1;
-  var id = setInterval(frame, 100);
+  var id = setInterval(frame, 1000);
   function frame() {
-    if (width >= 1000) {
+    if (width >= 100) {
       clearInterval(id);
      } else {
       width++;
@@ -133,3 +136,11 @@ function move() {
      }
   }
 }
+
+function resetTimer() {
+  var elem = document.getElementById("myBar");
+  elem.style.width = "1%";
+}
+
+
+//have it so the user starts the game, every time they guess correct, the bar starts over, the min and max get further.
