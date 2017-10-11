@@ -1,5 +1,4 @@
-//GLOBAL VARS
-
+//GLOBAL VARIABLES
 var num = 0;
 var guess = 0;
 var min = 0;
@@ -12,16 +11,20 @@ var clearButton = document.getElementById("clear");
 var guessInput = document.getElementById("guessInput");
 var userSetRangeButton = document.getElementById("rangeButton");
 
+
+//SET THE RANDOM NUMBER
 function setNum(min, max) {
   num = Math.ceil(Math.random() * (max - min + 1))+min;
   console.log(num);
 }
 
+//USER SETS THE RANGE
 function setRange () {
   min = parseInt(document.getElementById("setMin").value);
   max = parseInt(document.getElementById("setMax").value);
 }
 
+//IF ELSE FOR GUESS IS CORRECT/HI/LOW/NAN
 function hiLow () {
   if (guess > max) {
     feedback.innerHTML = "Your guess is above the range"
@@ -38,7 +41,7 @@ function hiLow () {
     feedback.innerHTML = "That is too low";
   }
   else if (guess == num){
-    feedback.innerHTML = "<p>BOOM!<br > Your range has been adjusted! Click reset to start a new game.</p>";
+    feedback.innerHTML = "<p>BOOM!<br > <br >Your range has been adjusted! Click reset to start a new game.</p>";
     winIncrement();
   }
   else {
@@ -46,6 +49,8 @@ function hiLow () {
     display.innerHTML = "!";
   }
 }
+
+//IF USER WINS INCREMENT 10 +/- AND RESET NUM AND DISPLAY TO DOM
 function winIncrement() {
   min = min - 10;
   max = max + 10;
@@ -56,7 +61,7 @@ function winIncrement() {
   document.querySelector(".display-max").innerText = max;
 }
 
-
+//SAVE USER GUESS, PUSH TO ARRAY, ENABLE RESET, GET RANGE, CLEAR DOM, DISABLE BUTTONS
 function guessSave() {
     guess = parseInt(document.getElementById("guessInput").value);
     guessArray.push(guess);
@@ -68,6 +73,7 @@ function guessSave() {
     disableClear();
 };
 
+//WELL... RESETS THE GAME.
 function resetGame() {
   setNum(min, max);
   display.innerHTML = ' ';
@@ -76,6 +82,7 @@ function resetGame() {
   resetButton.disabled = true;  
 }
 
+//CLEARS INPUT, DISABLES CLEAR BUTTON
 function disableClear() {
   clear.disabled = true;
   document.getElementById("guessInput").value = '';
@@ -87,6 +94,7 @@ function disableClear() {
   }
  });
 
+ //INPUT LISTENS FOR 'E' AND '+' PREVENTS APPEARANCE
 function disable() {
   if (guessInput.value.length == 0) {
     document.getElementById("clear").disabled = true;
@@ -95,11 +103,13 @@ function disable() {
   }
 }
 
+//ONKEYUP CHECKS INPUT HAS CONTENT. IF YES, ENABLE. IF NO, DISABLE.
 function showMod() {
   var modWindow = document.getElementById("modifier");
   modWindow.style.display = modWindow.style.display == "none" ? "inline" : "none";
 }
 
+//USER SETS THE MIN AND MAX RANGE ON CLICK
 userSetRangeButton.addEventListener('click', function() {
   min = parseInt(document.getElementById("setMin").value);
   max = parseInt(document.getElementById("setMax").value);
