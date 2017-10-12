@@ -16,7 +16,6 @@ var clearButton = document.getElementById("clear");
 var userSetRangeButton = document.getElementById("rangeButton");
 // GLOBAL INPUTS
 var guessInput = document.getElementById("guessInput");
-
 //EVENT LISTENERS
 document.addEventListener("DOMContentLoaded", setNum(min,max))
 guessButton.addEventListener('click', guessSave);
@@ -81,14 +80,14 @@ function winIncrement() {
 
 //SAVE USER GUESS, PUSH TO ARRAY, ENABLE RESET, GET RANGE, CLEAR DOM, DISABLE BUTTONS
 function guessSave() {
-    guess = parseInt(document.getElementById("guessInput").value);
-    guessArray.push(guess);
-    resetButton.disabled = false;
-    display.innerHTML = guess;
-    setRange();
-    checkGuess();
-    guessInput.value = '';
-    disableClear();
+  guess = parseInt(document.getElementById("guessInput").value);
+  guessArray.push(guess);
+  resetButton.disabled = false;
+  display.innerHTML = guess;
+  setRange();
+  checkGuess();
+  guessInput.value = '';
+  disableClear();
 };
 
 //WELL... RESETS THE GAME.
