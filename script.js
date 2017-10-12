@@ -6,6 +6,7 @@ var min = 0;
 var max = 100;
 var guessArray = [];
 //  GLOBAL DISPLAYS
+var modWindow = document.getElementById("modifier");
 const display = document.getElementById("guessDisplay");
 var feedback = document.getElementById("tooLow");
 //  GLOBAL BUTTONS
@@ -86,7 +87,7 @@ function guessSave() {
     display.innerHTML = guess;
     setRange();
     checkGuess();
-    document.getElementById("guessInput").value = '';
+    guessInput.value = '';
     disableClear();
 };
 
@@ -102,21 +103,20 @@ function resetGame() {
 //CLEARS INPUT, DISABLES CLEAR BUTTON
 function disableClear() {
   clear.disabled = true;
-  document.getElementById("guessInput").value = '';
+  guessInput.value = '';
 }
 
  //INPUT LISTENS FOR 'E' AND '+' PREVENTS APPEARANCE
 function disable() {
   if (guessInput.value.length == 0) {
-    document.getElementById("clear").disabled = true;
+    clearButton.disabled = true;
   } else {
-    document.getElementById("clear").disabled = false;
+    clearButton.disabled = false;
   }
 }
 
 //ONKEYUP CHECKS INPUT HAS CONTENT. IF YES, ENABLE. IF NO, DISABLE.
 function showMod() {
-  var modWindow = document.getElementById("modifier");
   modWindow.style.display = modWindow.style.display == "none" ? "inline" : "none";
 }
 
@@ -128,6 +128,8 @@ userSetRangeButton.addEventListener('click', function() {
   document.querySelector(".display-max").innerText = max;
   resetGame();
 })
+
+
 
 
 
