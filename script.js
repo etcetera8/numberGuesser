@@ -6,6 +6,7 @@ var max = 100;
 var guessArray = [];
 const display = document.getElementById("guessDisplay");
 var feedback = document.getElementById("tooLow");
+var guessButton = document.getElementById("guess-button")
 var resetButton = document.getElementById("reset");
 var clearButton = document.getElementById("clear");
 var guessInput = document.getElementById("guessInput");
@@ -17,6 +18,8 @@ function setNum(min, max) {
   num = Math.ceil(Math.random() * (max - min + 1))+min;
   console.log(num);
 }
+document.addEventListener("DOMContentLoaded", setNum(min,max))
+
 
 //USER SETS THE RANGE
 function setRange () {
@@ -25,7 +28,7 @@ function setRange () {
 }
 
 //IF ELSE FOR GUESS IS CORRECT/HI/LOW/NAN
-function hiLow () {
+function checkGuess () {
   if (guess > max) {
     feedback.innerHTML = "Your guess is above the range"
     display.innerHTML = "!";
@@ -68,10 +71,12 @@ function guessSave() {
     resetButton.disabled = false;
     display.innerHTML = guess;
     setRange();
-    hiLow();
+    checkGuess();
     document.getElementById("guessInput").value = '';
     disableClear();
 };
+
+guessButton.addEventListener('click', guessSave);
 
 //WELL... RESETS THE GAME.
 function resetGame() {
@@ -81,12 +86,15 @@ function resetGame() {
   guessArray.length = 0;
   resetButton.disabled = true;  
 }
+resetButton.addEventListener("click", resetGame);
+
 
 //CLEARS INPUT, DISABLES CLEAR BUTTON
 function disableClear() {
   clear.disabled = true;
   document.getElementById("guessInput").value = '';
 }
+clearButton.addEventListener('click', disableClear)
  
  guessInput.addEventListener("keydown", function(e) {
   if ([69, 187].includes(e.keyCode)) {
@@ -102,12 +110,14 @@ function disable() {
     document.getElementById("clear").disabled = false;
   }
 }
+guessInput.addEventListener("keyup", disable);
 
 //ONKEYUP CHECKS INPUT HAS CONTENT. IF YES, ENABLE. IF NO, DISABLE.
 function showMod() {
   var modWindow = document.getElementById("modifier");
   modWindow.style.display = modWindow.style.display == "none" ? "inline" : "none";
 }
+document.getElementById("hamburger").addEventListener('click', showMod);
 
 //USER SETS THE MIN AND MAX RANGE ON CLICK
 userSetRangeButton.addEventListener('click', function() {
