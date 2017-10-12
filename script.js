@@ -1,25 +1,39 @@
 //GLOBAL VARIABLES
+//  GLOBAL NUMS
 var num = 0;
 var guess = 0;
 var min = 0;
 var max = 100;
 var guessArray = [];
+//  GLOBAL DISPLAYS
 const display = document.getElementById("guessDisplay");
 var feedback = document.getElementById("tooLow");
+//  GLOBAL BUTTONS
 var guessButton = document.getElementById("guess-button")
 var resetButton = document.getElementById("reset");
 var clearButton = document.getElementById("clear");
-var guessInput = document.getElementById("guessInput");
 var userSetRangeButton = document.getElementById("rangeButton");
+// GLOBAL INPUTS
+var guessInput = document.getElementById("guessInput");
 
+//EVENT LISTENERS
+document.addEventListener("DOMContentLoaded", setNum(min,max))
+guessButton.addEventListener('click', guessSave);
+resetButton.addEventListener("click", resetGame);
+guessInput.addEventListener("keyup", disable);
+document.getElementById("hamburger").addEventListener('click', showMod);
+clearButton.addEventListener('click', disableClear)
+guessInput.addEventListener("keydown", function(e) {
+  if ([69, 187].includes(e.keyCode)) {
+    e.preventDefault();
+  }
+ });
 
 //SET THE RANDOM NUMBER
 function setNum(min, max) {
   num = Math.ceil(Math.random() * (max - min + 1))+min;
   console.log(num);
 }
-document.addEventListener("DOMContentLoaded", setNum(min,max))
-
 
 //USER SETS THE RANGE
 function setRange () {
@@ -76,8 +90,6 @@ function guessSave() {
     disableClear();
 };
 
-guessButton.addEventListener('click', guessSave);
-
 //WELL... RESETS THE GAME.
 function resetGame() {
   setNum(min, max);
@@ -86,21 +98,12 @@ function resetGame() {
   guessArray.length = 0;
   resetButton.disabled = true;  
 }
-resetButton.addEventListener("click", resetGame);
-
 
 //CLEARS INPUT, DISABLES CLEAR BUTTON
 function disableClear() {
   clear.disabled = true;
   document.getElementById("guessInput").value = '';
 }
-clearButton.addEventListener('click', disableClear)
- 
- guessInput.addEventListener("keydown", function(e) {
-  if ([69, 187].includes(e.keyCode)) {
-    e.preventDefault();
-  }
- });
 
  //INPUT LISTENS FOR 'E' AND '+' PREVENTS APPEARANCE
 function disable() {
@@ -110,14 +113,12 @@ function disable() {
     document.getElementById("clear").disabled = false;
   }
 }
-guessInput.addEventListener("keyup", disable);
 
 //ONKEYUP CHECKS INPUT HAS CONTENT. IF YES, ENABLE. IF NO, DISABLE.
 function showMod() {
   var modWindow = document.getElementById("modifier");
   modWindow.style.display = modWindow.style.display == "none" ? "inline" : "none";
 }
-document.getElementById("hamburger").addEventListener('click', showMod);
 
 //USER SETS THE MIN AND MAX RANGE ON CLICK
 userSetRangeButton.addEventListener('click', function() {
