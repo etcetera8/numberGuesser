@@ -1,42 +1,47 @@
-<!doctype html>
-
 <!DOCTYPE html>
 <html>
 <head>
-
-  <title>Number Guess</title>
+  <title>Number Guesser</title>
+  <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
- 
 </head>
-
-<body onload = "setNum()">
+<body>
   
   <header>
-    <h1><span class = "number">Number</span> <span class = "guesser">Guesser</span></h1>
+    <h1><span class = "pink">Number</span> <span class = "guesser">Guesser</span></h1>
+    <label for = "hamburger" ariahidden = "true" aria-label = "modify game"></label>
+    <i tabindex = "0" aria-label = "modify game window" id="hamburger" class = "fa fa-bars" aria-hidden="true"></i>
   </header>
 
   <section class = "main">
+    <section tabindex="0" id = "modifier" style="display: none;">
+      <p>Set your own range</p>
+      <label for = "setMin">Min: </label><input class = "set-range" id = "setMin" type = "number" value = "0">
+      <label for = "setMax">Max: </label><input class = "set-range" id = "setMax" type = "number" value = "100">
+      <button id = "rangeButton" type = "button">Set range</button> 
+    </section>
+
     <form>
-      <label> 
-        <input id = "guessInput" type = "number" placeholder="Enter your guess here" min = "1" max ="100" onkeyup = "disable()";></input>
+      <label for = "guessInput" aria-label = "Input Guess"> 
+        <input id = "guessInput" type = "number" placeholder="Enter your guess here"></input>
       </label> 
-      
+
       <div class = "top-wrapper">
-        <button id = "guessButton" type = "button" onclick = "guessSave()">Guess</button>
-        <button id = "clear" type = "reset" disabled="true" onclick="disableClear()">Clear</button>
+        <button aria-label = "submit guess" id = "guess-button" type = "button">Guess</button> 
+        <button aria-label = "clear input field" id = "clear" type = "reset" disabled="true">Clear</button>
       </div>
     </form>
 
       <p>Your last guess was</p>
-      <p id = "guessDisplay"></p>
-      <p id = "tooLow"></p>
+      <p aria-label = "your gess"id = "guessDisplay"></p>
+      <p aria-label = "was your guess correct" id = "tooLow"></p>
 
     <div class = "wrapper">
-      <button id = "reset" type = "submit" onclick = "resetGame()" disabled="true">Reset</button>
+      <p>Your guess should be between <span class = "display-min pink">1</span> and <span class = "display-max pink">100</span></p>
+      <button aria-label = "reset game" id = "reset" type = "submit" disabled="true">Reset</button>
     </div>
   </section>
 
 </body>
-
 <script type="text/javascript" src = "script.js"></script>
 </html>

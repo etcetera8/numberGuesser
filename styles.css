@@ -11,20 +11,34 @@ header {
   background-color: #404041;
   width: 100%;
   height: auto;
+  position: relative;
+}
+
+i {
+  color: #e6e7e8;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0px 25px 5px -25px;
+  transition: color 0.2s ease;
+}
+
+i:hover {
+  color:#ED458B;
 }
 
 h1 {
-  font-weight: 100;
-  color: #e6e7e8;
   margin: 0 auto;
 }
-.number {
+
+.pink {
   font-weight: 900;
   color: #ED458B;
 }
 
 .guesser {
   font-weight: lighter;
+  color: #e6e7e8;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -40,6 +54,12 @@ form {
   margin: 5%;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+}
+
 input {
   width: 250px;
   display: block;
@@ -47,9 +67,9 @@ input {
 }
 
 button {
-  /*margin:3% 4% 0% 4%;*/
-  width: 100px;
+  width: 105px;
   height: 25px;
+  transition: background 0.2s ease;
   -webkit-border-radius: 16px;
   -moz-border-radius: 16px;
   border-radius: 16px;
@@ -67,7 +87,7 @@ button {
   overflow: hidden;
 }
 
-#guessButton {
+#guess-button {
 float: left;
 }
 
@@ -100,4 +120,57 @@ button:hover {
 
 button:disabled {
   background-color: #D0D2D3;
+}
+
+#modifier {
+  transition: height 0.2s ease;
+  background-color: #404041;
+  width:25%;
+  position: absolute;
+  right: 0;
+  padding: 0px 5px 20px 5px;
+}
+
+#modifier p {
+  color: #e6e7e8;
+}
+
+#rangeButton {
+  display: block;
+  margin:0 auto;
+  margin-top: 10px;
+}
+
+.range {
+  margin: 5px;
+}
+
+.set-range {
+  width:30px;
+  margin: 7px 7px 7px 10px;
+  display: inline;
+}
+
+label {
+  display: inline;
+  color: #e6e7e8;
+}
+
+@media all and (max-width: 500px) {
+  #modifier {
+    position: relative;
+    background-color: white;
+  }
+
+  #modifier p {
+    color: #404041;
+  }
+
+  .main {
+    height: 580px;
+  }
+
+  label {
+    color:#404041;
+  }
 }

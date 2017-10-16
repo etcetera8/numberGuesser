@@ -1,1 +1,7 @@
-A Turing School project where user guesses a number between 1 and 100.
+##Turing School project one - Number Guesser 
+
+- user guesses between a value 1 - 100
+- user can define range to guess
+- upon succesfull win, range is incremented up and down 10
+- make it two player
+- make a timer with points
