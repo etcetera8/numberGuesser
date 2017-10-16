@@ -29,6 +29,13 @@ guessInput.addEventListener("keydown", function(e) {
   }
  });
 
+guessInput.addEventListener("keypress", function(e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // ENTER
+        e.preventDefault();
+        guessSave();}
+});
+
 //SET THE RANDOM NUMBER
 function setNum(min, max) {
   num = Math.ceil(Math.random() * (max - min + 1))+min;
